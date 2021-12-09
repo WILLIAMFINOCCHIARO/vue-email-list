@@ -14,6 +14,7 @@
 const app = new Vue({
 	el: '#root',
 	data: {
+    email: null
 	
 	},
 	methods: {
@@ -22,12 +23,13 @@ const app = new Vue({
 
 	},
   created(){
+      for (i = 0; i < 10; i++){
 
-      // Make a request for a user with a given ID
+        // Make a request for a user with a given ID
       axios.get("https://flynn.boolean.careers/exercises/api/random/mail")
-      .then(function (response) {
+      .then((response) => {
         // handle success
-        console.log(response);
+        this.email= response.data.response;
       })
       .catch(function (error) {
         // handle error
@@ -36,6 +38,9 @@ const app = new Vue({
       .then(function () {
         // always executed
       });
+
+      }
+      
 
   }
 
