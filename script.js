@@ -11,12 +11,32 @@
 
 
 
+const app = new Vue({
+	el: '#root',
+	data: {
+	
+	},
+	methods: {
 
-const root = new Vue ({
-  el:"#root",
-  data:{
+    
+
+	},
+  created(){
+
+      // Make a request for a user with a given ID
+      axios.get("https://flynn.boolean.careers/exercises/api/random/mail")
+      .then(function (response) {
+        // handle success
+        console.log(response);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .then(function () {
+        // always executed
+      });
 
   }
 
-
-})
+});
